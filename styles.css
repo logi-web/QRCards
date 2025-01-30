@@ -108,11 +108,6 @@ footer a:hover {
     width: 400px;
     position: relative;
 }
-.modal img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-}
 .close-button {
     position: absolute;
     top: -40px;
@@ -123,8 +118,4 @@ footer a:hover {
     background: none;
     border: none;
     padding: 5px;
-}
-.modal-title {
-    margin-bottom: 15px;
-    color: white;
 }
