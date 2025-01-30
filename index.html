@@ -21,6 +21,7 @@ layout: null
         html, body {
             height: 100%;
             min-width: 200px;
+            background-color: #1a1a1a;
         }
 
         body {
@@ -28,8 +29,8 @@ layout: null
             overflow-y: auto;
             display: block;
             transition: background-color 0.3s, color 0.3s;
-            background-color: white;
-            color: #333;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
         }
 
         .container {
@@ -39,22 +40,20 @@ layout: null
             width: 100%;
             max-width: 400px;
             min-width: 200px;
-            padding: 0px;
+            padding: 0 20px;
             text-align: center;
             margin: 0 auto;
+            justify-content: center;
+            min-height: 100vh;
         }
 
         h1 {
-            margin-top: 30px;
             margin-bottom: 20px;
             padding: 10px 0;
             width: 100%;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: #333;
+            color: #e0e0e0;
+            font-size: 24px;
+            text-align: center;
         }
 
         .qr-grid {
@@ -62,94 +61,84 @@ layout: null
             flex-direction: column;
             align-items: center;
             width: 100%;
+            gap: 10px;
         }
 
         .qr-card {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            width: 80%;
-            min-width: 160px;
+            justify-content: center;
+            width: 100%;
             padding: 15px;
-            margin-bottom: 20px;
-            background-color: #f5f5f5;
+            background-color: #2d2d2d;
             border-radius: 5px;
+            color: white;
+            text-decoration: none;
             transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .qr-card:hover {
+            opacity: 0.8;
         }
 
         .qr-card img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
+            max-height: 24px;
+            width: auto;
+            margin-right: 10px;
         }
 
-        .qr-card h2 {
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: inherit;
-        }
-
-        .qr-card p {
-            font-size: 14px;
-            color: inherit;
-            opacity: 0.8;
+        .qr-card span {
+            font-size: 16px;
         }
 
         .footer {
             width: 100%;
-            max-width: 400px;
-            min-width: 200px;
-            padding: 10px 20px;
+            padding: 20px 0;
             text-align: center;
             font-size: 14px;
-            margin: 0 auto 20px auto;
-            transition: color 0.3s;
-            color: #555;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
+            margin-top: 20px;
+            color: #b0b0b0;
         }
 
         .footer a {
-            color: inherit;
+            color: #b0b0b0;
             text-decoration: none;
-            align-items: center;
-            gap: 5px;
         }
 
         .footer a:hover {
             text-decoration: underline;
         }
 
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #121212;
-                color: #e0e0e0;
+        @media (max-width: 320px) {
+            .container {
+                padding: 0 10px;
             }
-            h1 {
-                color: #e0e0e0;
-            }
-            .footer {
-                color: #b0b0b0;
-            }
+            
             .qr-card {
-                background-color: #1f2937;
+                padding: 12px;
+            }
+            
+            .qr-card img {
+                max-height: 20px;
+            }
+            
+            .qr-card span {
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>{{ site.title }}</h1>
+        <h1>QRCards</h1>
         
         <div class="qr-grid">
             {% for qr in site.data.qrcodes %}
-            <div class="qr-card">
+            <a href="{{ qr.url }}" class="qr-card">
                 <img src="{{ qr.image }}" alt="{{ qr.name }} QR Code">
-                <h2>{{ qr.name }}</h2>
-                <p>{{ qr.description }}</p>
-            </div>
+                <span>{{ qr.name }}</span>
+            </a>
             {% endfor %}
         </div>
 
