@@ -1,5 +1,5 @@
 # qrcodes.yml
 - name: Tesco Clubcard
-  image: /images/tesco.png
+  image: {{ site.baseurl }}/images/tesco.png
 - name: Nectar Card
-  image: /images/nectar.png
+  image: {{ site.baseurl }}/images/nectar.png
