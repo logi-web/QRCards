@@ -60,7 +60,8 @@ h1 {
     opacity: 0.8;
 }
 .button img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 120px;
     height: auto;
     margin-bottom: 10px;
 }
@@ -83,8 +84,6 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-
-/* Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -96,6 +95,7 @@ footer a:hover {
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 .modal.active {
     display: flex;
@@ -104,9 +104,19 @@ footer a:hover {
     background-color: #2d2d2d;
     padding: 20px;
     border-radius: 5px;
-    max-width: 90%;
-    width: 400px;
+    width: 100%;
+    max-width: 300px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 15px;
 }
 .close-button {
     position: absolute;
@@ -119,3 +129,8 @@ footer a:hover {
     border: none;
     padding: 5px;
 }
+.modal-title {
+    margin-bottom: 15px;
+    color: white;
+    width: 100%;
+    text-align: center;
