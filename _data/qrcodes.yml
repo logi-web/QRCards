@@ -1,0 +1,7 @@
+- name: Tesco Clubcard
+  image: /images/tesco.png
+  description: Scan this code at Tescos.
+
+- name: Nectar Card
+  image: /images/nectar.png
+  description: Scan this code at Sainsburys.
