@@ -45,8 +45,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
-    min-width: 160px;
+    justify-content: center;
+    width: 100%;
     padding: 15px;
     background-color: #2d2d2d;
     border-radius: 5px;
@@ -61,7 +61,6 @@ h1 {
 }
 .button img {
     width: 100%;
-    max-width: 120px;
     height: auto;
     margin-bottom: 10px;
 }
@@ -104,17 +103,13 @@ footer a:hover {
     background-color: #2d2d2d;
     padding: 20px;
     border-radius: 5px;
-    width: 100%;
-    max-width: 300px;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .modal img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
+    width: auto;
+    height: 50vh;
     object-fit: contain;
     margin-bottom: 15px;
 }
