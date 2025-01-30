@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --background-color: #ffffff;
+            --text-color: #1f2937;
+            --card-background: #f3f4f6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #3b82f6;
+                --background-color: #1f2937;
+                --text-color: #f3f4f6;
+                --card-background: #374151;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .qr-card {
+            background-color: var(--card-background);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .qr-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .qr-card h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.25rem;
+        }
+
+        .qr-card p {
+            margin: 0;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--text-color);
+            opacity: 0.8;
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ site.title }}</h1>
+        
+        <div class="qr-grid">
+            {% for qr in site.data.qrcodes %}
+            <div class="qr-card">
+                <img src="{{ qr.image }}" alt="{{ qr.name }} QR Code">
+                <h2>{{ qr.name }}</h2>
+                <p>{{ qr.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <footer class="footer">
+            By {{ site.author }}, find me on 
+            <a 
+                href="{{ site.github.owner_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+        </footer>
+    </div>
+</body>
+</html>
