@@ -11,19 +11,7 @@ layout: null
     <title>{{ site.title }}</title>
     <meta name="description" content="{{ site.description }}">
     <link rel="stylesheet" href="{{ site.github.baseurl }}/styles.css">
-    <script>
-        function openModal(event, qrId) {
-            event.preventDefault();
-            document.getElementById(qrId + '-modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(qrId) {
-            document.getElementById(qrId + '-modal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    </script>
-    </style>
+    <script src="{{ site.github.baseurl }}/script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -42,13 +30,7 @@ layout: null
 
         <footer>
             By {{ site.author }}, find me on 
-            <a 
-                href="{{ site.github.owner_url }}"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                GitHub
-            </a>
+            <a href="{{ site.github.owner_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
         </footer>
     </div>
 
