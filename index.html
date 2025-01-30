@@ -19,8 +19,8 @@ layout: null
         <div class="qr-grid">
             {% for qr in site.data.qrcodes %}
             <a href="{{ qr.url }}" class="qr-card">
-                <img src="{{ qr.image }}" alt="{{ qr.name }} QR Code">
-                <span>{{ qr.name }}</span>
+                <img src="{{ site.baseurl }}{{ qr.image }}" alt="{{ site.baseurl }}{{ qr.name }} QR Code">
+                <span>{{ site.baseurl }}{{ qr.name }}</span>
             </a>
             {% endfor %}
         </div>
