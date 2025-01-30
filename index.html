@@ -11,20 +11,33 @@ layout: null
     <title>{{ site.title }}</title>
     <meta name="description" content="{{ site.description }}">
     <link rel="stylesheet" href="{{ site.github.baseurl }}/styles.css">
-    
-    
+    <script>
+        function openModal(event, qrId) {
+            event.preventDefault();
+            document.getElementById(qrId + '-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(qrId) {
+            document.getElementById(qrId + '-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>QRCards</h1>
         
         <div id="link-buttons">
-            {% for qr in site.data.qrcodes %}
-            <a href="{{ qr.url }}" class="button">
-                <img src="{{ site.github.baseurl }}{{ qr.image }}" alt="{{ qr.name }} QR Code">
-                <span>{{ qr.name }}</span>
+            <a href="#" class="button" onclick="openModal(event, 'tesco-clubcard')">
+                <img src="{{ site.github.baseurl }}/images/tesco.png" alt="Tesco Clubcard QR Code">
+                <span>Tesco Clubcard</span>
             </a>
-            {% endfor %}
+            <a href="#" class="button" onclick="openModal(event, 'nectar-card')">
+                <img src="{{ site.github.baseurl }}/images/nectar.png" alt="Nectar Card QR Code">
+                <span>Nectar Card</span>
+            </a>
         </div>
 
         <footer>
@@ -37,6 +50,22 @@ layout: null
                 GitHub
             </a>
         </footer>
+    </div>
+
+    <div id="tesco-clubcard-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('tesco-clubcard')">&times;</button>
+            <h2 class="modal-title">Tesco Clubcard</h2>
+            <img src="{{ site.github.baseurl }}/images/tesco.png" alt="Tesco Clubcard QR Code">
+        </div>
+    </div>
+
+    <div id="nectar-card-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal('nectar-card')">&times;</button>
+            <h2 class="modal-title">Nectar Card</h2>
+            <img src="{{ site.github.baseurl }}/images/nectar.png" alt="Nectar Card QR Code">
+        </div>
     </div>
 </body>
 </html>
