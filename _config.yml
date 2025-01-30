@@ -2,5 +2,5 @@
 title: QRCards
 description: Quick links to my loyalty cards.
 author: Louis Giron
-baseurl: ""  # leave empty for user sites
+baseurl: "/QRCards"  # leave empty for user sites
 url: "" # leave empty for GitHub Pages to set automatically
