@@ -16,11 +16,11 @@ layout: null
     <div class="container">
         <h1>QRCards</h1>
         
-        <div class="qr-grid">
+        <div id="link-buttons">
             {% for qr in site.data.qrcodes %}
-            <a href="{{ qr.url }}" class="qr-card">
-                <img src="{{ site.baseurl }}{{ qr.image }}" alt="{{ site.baseurl }}{{ qr.name }} QR Code">
-                <span>{{ site.baseurl }}{{ qr.name }}</span>
+            <a href="{{ qr.url }}" class="button">
+                <img src="{{ site.github.baseurl }}{{ qr.image }}" alt="{{ qr.name }} QR Code">
+                <span>{{ qr.name }}</span>
             </a>
             {% endfor %}
         </div>
