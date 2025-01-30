@@ -64,6 +64,9 @@ h1 {
     gap: 10px;
     background-color: #2d2d2d;
 }
+img {
+    border-radius: 5px;
+}
 .button img {
     max-width: 100%;
     height: auto;
