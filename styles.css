@@ -143,3 +143,36 @@ footer a:hover {
     margin-bottom: 15px;
     text-align: center;
 }
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #f9f9f9;
+        color: #222;
+    }
+    h1 {
+        color: #222;
+    }
+    .button {
+        background-color: #e0e0e0;
+        color: #222;
+    }
+    .button:hover {
+        opacity: 0.9;
+        background-color: #d6d6d6;
+    }
+    footer {
+        color: #555;
+    }
+    .modal {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    .modal-content {
+        background-color: #ffffff;
+        color: #222;
+    }
+    .close-button {
+        color: #222;
+    }
+    .modal-title {
+        color: #222;
+    }
+}
