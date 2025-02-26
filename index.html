@@ -18,14 +18,12 @@ layout: null
         <h1>QRCards</h1>
         
         <div id="link-buttons">
-            <a href="#" class="button" onclick="openModal(event, 'tesco-clubcard')">
-                <img src="{{ site.github.baseurl }}/images/tesco.png" alt="Tesco Clubcard QR Code">
-                <span>Tesco Clubcard</span>
+            {% for card in page.cards %}
+            <a href="#" class="button" onclick="openModal(event, '{{ card.id }}')">
+                <img src="{{ site.github.baseurl }}/images/{{ card.image }}" alt="{{ card.name }} QR Code">
+                <span>{{ card.name }}</span>
             </a>
-            <a href="#" class="button" onclick="openModal(event, 'nectar-card')">
-                <img src="{{ site.github.baseurl }}/images/nectar.png" alt="Nectar Card QR Code">
-                <span>Nectar Card</span>
-            </a>
+            {% endfor %}
         </div>
 
         <footer>
@@ -33,21 +31,16 @@ layout: null
             <a href="{{ site.github.owner_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
         </footer>
     </div>
-
-    <div id="tesco-clubcard-modal" class="modal">
+    
+    {% for card in page.cards %}
+    <div id="{{ card.id }}-modal" class="modal">
         <div class="modal-content">
-            <button class="close-button" onclick="closeModal('tesco-clubcard')">&times;</button>
-            <h2 class="modal-title">Tesco Clubcard</h2>
-            <img src="{{ site.github.baseurl }}/images/tesco.png" alt="Tesco Clubcard QR Code">
+            <button class="close-button" onclick="closeModal('{{ card.id }}')">&times;</button>
+            <h2 class="modal-title">{{ card.name }}</h2>
+            <img src="{{ site.github.baseurl }}/images/{{ card.image }}" alt="{{ card.name }} QR Code">
         </div>
     </div>
-
-    <div id="nectar-card-modal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal('nectar-card')">&times;</button>
-            <h2 class="modal-title">Nectar Card</h2>
-            <img src="{{ site.github.baseurl }}/images/nectar.png" alt="Nectar Card QR Code">
-        </div>
-    </div>
+    {% endfor %}#
+    
 </body>
 </html>
