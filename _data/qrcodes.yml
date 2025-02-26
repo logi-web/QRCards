@@ -8,3 +8,6 @@
 - id: lidl-plus
   name: Lidl Plus
   image: /images/lidl.png
+- id: my-waitrose
+  name: My Waitrose
+  image: mywaitrose
