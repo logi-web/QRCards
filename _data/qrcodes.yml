@@ -8,24 +8,27 @@
 - id: lidl-plus
   name: Lidl Plus
   image: /images/lidl.png
-- id: my-waitrose
-  name: My Waitrose
-  image: /images/mywaitrose.png
-- id: asda
-  name: Asda
-  image: /images/asda.png
-- id: morrisons-more
-  name: Morrisons More
-  image: /images/morrisonsmore.png
-- id: boots
-  name: Boots
-  image: /images/boots.png
 - id: co-op
   name: Co-op
   image: /images/co-op.png
-- id: levis
-  name: Levis
-  image: /images/levis.png
+- id: my-waitrose
+  name: My Waitrose
+  image: /images/mywaitrose.png
+- id: morrisons-more
+  name: Morrisons More
+  image: /images/morrisonsmore.png
+- id: asda
+  name: Asda
+  image: /images/asda.png
+- id: boots
+  name: Boots
+  image: /images/boots.png
 - id: superdrug
   name: Superdrug
   image: /images/superdrug.png
+- id: decathlon
+  name: Decathlon
+  image: /images/decathlon.png
+- id: levis
+  name: Levis
+  image: /images/levis.png
