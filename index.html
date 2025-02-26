@@ -6,8 +6,7 @@ layout: null
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#f9f9f9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#2a3042">
     
     <!-- Title & Description -->
     <title>{{ site.title }}</title>
@@ -47,9 +46,9 @@ layout: null
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            background-color: #121212;
+            background-color: #2a3042;
             opacity: 1;
-            transition: opacity 500ms ease;
+            transition: background-color 500ms ease, opacity 500ms ease;
         }
         
         .splash-screen.fade-out {
@@ -63,7 +62,7 @@ layout: null
         }
         
         .splash-logo path {
-            fill: #ffffff;
+            fill: #a0c0ff; /* Light blue color to match the screenshot */
         }
         
         /* Initially hide content until splash is done */
@@ -146,6 +145,7 @@ layout: null
             if (isStandalone()) {
                 // Show splash briefly and then fade out
                 setTimeout(function() {
+                    // First, fade out the splash screen
                     splashScreen.classList.add('fade-out');
                     document.body.classList.add('content-visible');
                     
