@@ -29,4 +29,5 @@ layout: null
   "theme_color": "#2a3042",
   "background_color": "#2a3042",
   "display": "standalone"
+  "splash_pages": null
 }
