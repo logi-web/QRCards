@@ -1,7 +1,6 @@
 ---
 layout: null
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,21 +17,20 @@ layout: null
         <h1>QRCards</h1>
         
         <div id="link-buttons">
-            {% for card in page.cards %}
+            {% for card in site.data.qrcodes %}
             <a href="#" class="button" onclick="openModal(event, '{{ card.id }}')">
                 <img src="{{ site.github.baseurl }}{{ card.image }}" alt="{{ card.name }} QR Code">
                 <span>{{ card.name }}</span>
             </a>
             {% endfor %}
         </div>
-
         <footer>
             By {{ site.author }}, find me on 
             <a href="{{ site.github.owner_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
         </footer>
     </div>
     
-    {% for card in page.cards %}
+    {% for card in site.data.qrcodes %}
     <div id="{{ card.id }}-modal" class="modal">
         <div class="modal-content">
             <button class="close-button" onclick="closeModal('{{ card.id }}')">&times;</button>
@@ -40,7 +38,6 @@ layout: null
             <img src="{{ site.github.baseurl }}{{ card.image }}" alt="{{ card.name }} QR Code">
         </div>
     </div>
-    {% endfor %}#
-    
+    {% endfor %}
 </body>
 </html>
