@@ -6,7 +6,8 @@ layout: null
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#121212">
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f9f9f9" media="(prefers-color-scheme: light)">
     
     <!-- Title & Description -->
     <title>{{ site.title }}</title>
@@ -32,11 +33,77 @@ layout: null
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ site.github.baseurl }}/styles.css">
-    <script src="{{ site.github.baseurl }}/script.js" defer></script>
+    
+    <!-- Splash Screen Styles -->
+    <style>
+        /* Splash Screen Styles */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            background-color: #121212;
+            opacity: 1;
+            transition: opacity 500ms ease;
+        }
+        
+        .splash-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .splash-logo {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .splash-logo path {
+            fill: #ffffff;
+        }
+        
+        /* Initially hide content until splash is done */
+        body > .container, 
+        body > .modal {
+            opacity: 0;
+            transition: opacity 300ms ease;
+        }
+        
+        body.content-visible > .container,
+        body.content-visible > .modal {
+            opacity: 1;
+        }
+        
+        /* Light mode splash screen */
+        @media (prefers-color-scheme: light) {
+            .splash-screen {
+                background-color: #f9f9f9;
+            }
+            
+            .splash-logo path {
+                fill: #000000;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splash-screen">
+        <svg class="splash-logo" viewBox="0 0 264.58333 264.58333" xmlns="http://www.w3.org/2000/svg">
+            <g transform="matrix(1.2877405,0,0,1.2877405,-38.065687,-38.065724)">
+                <path style="stroke-width:0.144781" d="M 80.170817,91.768042 V 126.51528 H 114.91805 V 91.768042 Z m 52.120853,0 v 11.582238 h 11.58224 V 91.768042 Z m 0,11.582238 h -11.58224 v 23.165 h 23.16448 v -11.58276 h -11.58224 z m 17.37361,-11.582238 v 34.747238 h 34.74724 V 91.768042 Z m -60.807655,8.686808 h 17.373615 v 17.37362 H 88.857625 Z m 69.494465,0 h 17.37362 v 17.37362 h -17.37362 z m -65.151061,4.3434 v 8.68681 h 8.686811 v -8.68681 z m 69.494471,0 v 8.68681 h 8.6868 v -8.68681 z"/>
+                <path style="stroke:none;stroke-width:2.98381;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" d="m 85.517958,66.407867 c -16.17721,0 -29.200669,12.61318 -29.200669,28.28205 V 169.8935 c 0,15.66898 13.023459,28.28205 29.200669,28.28205 h 93.547422 c 16.17723,0 29.20069,-12.61307 29.20069,-28.28205 V 94.689917 c 0,-15.66887 -13.02346,-28.28205 -29.20069,-28.28205 z m 0.48476,12.14002 h 92.578102 c 10.3629,0 18.70849,7.95498 18.70849,17.84072 v 30.977873 c -10.62453,9.08012 -26.35023,22.64944 -31.64709,23.60145 -9.62161,1.72941 -14.73086,-2.85374 -98.340358,-23.40671 l -0.0031,-0.39786 V 96.388607 c 0,-9.88565 8.34099,-17.84072 18.70392,-17.84072 z"/>
+                <path style="stroke-width:0.262436" d="m 149.65857,131.80229 v 11.58327 h 11.52281 0.0723 11.52333 v -11.58327 h -11.52333 -0.0723 z"/>
+            </g>
+        </svg>
+    </div>
+
+    <!-- Main App Content -->
     <div class="container">
-        
         <h1>{{ site.title }}</h1>
         <div id="link-buttons">
             {% for card in site.data.qrcodes %}
@@ -61,5 +128,39 @@ layout: null
         </div>
     </div>
     {% endfor %}
+
+    <!-- Scripts -->
+    <script>
+        // Splash screen functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const splashScreen = document.getElementById('splash-screen');
+            
+            // Function to detect if PWA/Standalone mode
+            function isStandalone() {
+                return window.matchMedia('(display-mode: standalone)').matches || 
+                       window.navigator.standalone || 
+                       document.referrer.includes('android-app://');
+            }
+            
+            // Only show splash in PWA mode
+            if (isStandalone()) {
+                // Show splash briefly and then fade out
+                setTimeout(function() {
+                    splashScreen.classList.add('fade-out');
+                    document.body.classList.add('content-visible');
+                    
+                    // Complete removal after animation
+                    setTimeout(function() {
+                        splashScreen.style.display = 'none';
+                    }, 500);
+                }, 500);
+            } else {
+                // Not in PWA mode, hide splash immediately
+                splashScreen.style.display = 'none';
+                document.body.classList.add('content-visible');
+            }
+        });
+    </script>
+    <script src="{{ site.github.baseurl }}/script.js" defer></script>
 </body>
 </html>
