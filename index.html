@@ -35,7 +35,14 @@ layout: null
     <script src="{{ site.github.baseurl }}/script.js" defer></script>
 </head>
 <body>
-    <div id="pwa-splash" class="pwa-splash"></div>
+    <div id="splash-screen" class="splash-screen">
+      <div class="splash-content">
+        <img src="{{ site.github.url }}/icons/web-app-icon.svg" alt="App Logo">
+        <h1>{{ site.title }}</h1>
+        <!-- Optional loading indicator -->
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
     <div class="container">
         <h1>{{ site.title }}</h1>
         
