@@ -1,7 +1,10 @@
 # qrcodes.yml
-- name: Tesco Clubcard
+- id: tesco-clubcard
+  name: Tesco Clubcard
   image: /images/tesco.png
-- name: Nectar Card
+- id: nectar-card
+  name: Nectar Card
   image: /images/nectar.png
-- name: Lidl Plus
+- id: lidl-plus
+  name: Lidl Plus
   image: /images/lidl.png
