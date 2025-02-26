@@ -1,0 +1,64 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>You're Offline - {{ site.title }}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/icons/favicon.svg">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .icon {
+            font-size: 72px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        button {
+            background-color: #4a4a4a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #5a5a5a;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon">📶</div>
+    <h1>You're Offline</h1>
+    <p>{{ site.title }} is available offline, but the content you're looking for hasn't been cached yet. Please reconnect to the internet and try again.</p>
+    <button onclick="window.location.reload()">Try Again</button>
+    
+    <script>
+        // Check if user goes back online
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>
