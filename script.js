@@ -9,11 +9,17 @@ function closeModal(qrId) {
     document.body.style.overflow = 'auto';
 }
 
-// Listen for the PWA launch
-window.addEventListener('DOMContentLoaded', () => {
-  // You can add a small delay here if needed
-  setTimeout(() => {
-    // Code to smoothly transition from splash screen
-    document.querySelector('body').classList.add('loaded');
-  }, 500); // Adjust timing as needed (300ms in this example)
+// Simple PWA splash screen handler
+document.addEventListener('DOMContentLoaded', () => {
+    const splash = document.getElementById('pwa-splash');
+    
+    // Wait a short moment then fade out
+    setTimeout(() => {
+        splash.classList.add('fade-out');
+        
+        // Remove from DOM after animation completes
+        setTimeout(() => {
+            splash.style.display = 'none';
+        }, 800); // Match this to your transition time
+    }, 300); // Adjust delay as needed
 });
