@@ -8,3 +8,12 @@ function closeModal(qrId) {
     document.getElementById(qrId + '-modal').classList.remove('active');
     document.body.style.overflow = 'auto';
 }
+
+// Listen for the PWA launch
+window.addEventListener('DOMContentLoaded', () => {
+  // You can add a small delay here if needed
+  setTimeout(() => {
+    // Code to smoothly transition from splash screen
+    document.querySelector('body').classList.add('loaded');
+  }, 300); // Adjust timing as needed (300ms in this example)
+});
