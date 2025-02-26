@@ -10,4 +10,7 @@
   image: /images/lidl.png
 - id: my-waitrose
   name: My Waitrose
-  image: mywaitrose.png
+  image: /images/mywaitrose.png
+- id: asda
+  name: Asda
+  image: /images/asda.png
