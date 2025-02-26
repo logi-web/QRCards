@@ -7,8 +7,30 @@ layout: null
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#121212">
+    
+    <!-- Title & Description -->
     <title>{{ site.title }}</title>
     <meta name="description" content="{{ site.description }}">
+    
+    <!-- Open Graph Protocol-->
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:site_name" content="{{ site.github.owner_name }}">
+    <meta property="og:url" content="{{ site.github.url }}/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ site.github.url }}/icons/web-app-manifest-512x512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+
+    <!-- Icon Handling -->
+    <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.github.baseurl }}/icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ site.github.baseurl }}/icons/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="{{ site.github.baseurl }}/icons/favicon.svg">
+    <link rel="shortcut icon" href="{{ site.github.baseurl }}/icons/favicon.ico">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ site.github.baseurl }}/styles.css">
     <script src="{{ site.github.baseurl }}/script.js" defer></script>
 </head>
