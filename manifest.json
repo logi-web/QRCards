@@ -11,7 +11,7 @@ layout: null
       "src": "{{ site.github.url }}/icons/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "monochrome"
     },
     {
       "src": "{{ site.github.url }}/icons/web-app-manifest-512x512.png",
