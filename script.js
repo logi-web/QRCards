@@ -15,5 +15,5 @@ window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     // Code to smoothly transition from splash screen
     document.querySelector('body').classList.add('loaded');
-  }, 5000); // Adjust timing as needed (300ms in this example)
+  }, 500); // Adjust timing as needed (300ms in this example)
 });
