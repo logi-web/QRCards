@@ -14,7 +14,6 @@ const ASSETS_TO_CACHE = [
   `${BASE_URL}/script.js`,
   `${BASE_URL}/manifest.json`,
   `${BASE_URL}/offline.html`,
-  `${BASE_URL}/splash-screen.html`, // Added splash screen
   
   // Icons
   `${BASE_URL}/icons/favicon.ico`,
