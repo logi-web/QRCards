@@ -8,7 +8,7 @@ html, body {
     min-width: 200px;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     overflow-y: auto;
     display: block;
     transition: background-color 0.3s, color 0.3s;
