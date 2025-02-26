@@ -20,7 +20,7 @@ layout: null
         <div id="link-buttons">
             {% for card in page.cards %}
             <a href="#" class="button" onclick="openModal(event, '{{ card.id }}')">
-                <img src="{{ site.github.baseurl }}/images/{{ card.image }}" alt="{{ card.name }} QR Code">
+                <img src="{{ site.github.baseurl }}{{ card.image }}" alt="{{ card.name }} QR Code">
                 <span>{{ card.name }}</span>
             </a>
             {% endfor %}
@@ -37,7 +37,7 @@ layout: null
         <div class="modal-content">
             <button class="close-button" onclick="closeModal('{{ card.id }}')">&times;</button>
             <h2 class="modal-title">{{ card.name }}</h2>
-            <img src="{{ site.github.baseurl }}/images/{{ card.image }}" alt="{{ card.name }} QR Code">
+            <img src="{{ site.github.baseurl }}{{ card.image }}" alt="{{ card.name }} QR Code">
         </div>
     </div>
     {% endfor %}#
