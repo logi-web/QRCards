@@ -17,13 +17,13 @@ layout: null
       "src": "{{ site.github.url }}/icons/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "{{ site.github.url }}/icons/web-app-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "maskable"
+      "purpose": "monochrome"
     }
   ],
   "theme_color": "#000000",
