@@ -2,21 +2,35 @@
 layout: null
 ---
 // Modal functions
-function openModal(event, id) {
+function openModal(event, qrId) {
     event.preventDefault();
-    document.getElementById(id + '-modal').style.display = 'flex';
+    document.getElementById(qrId + '-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
-function closeModal(id) {
-    document.getElementById(id + '-modal').style.display = 'none';
+function closeModal(qrId) {
+    document.getElementById(qrId + '-modal').classList.remove('active');
+    document.body.style.overflow = 'auto';
 }
 
 // Close modal when clicking outside of it
 window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
+    if (event.target.classList.contains('modal') && event.target.classList.contains('active')) {
+        event.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
     }
 };
+
+// Add keyboard support for closing with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const openModals = document.querySelectorAll('.modal.active');
+        openModals.forEach(modal => {
+            modal.classList.remove('active');
+        });
+        document.body.style.overflow = 'auto';
+    }
+});
 
 // Register Service Worker for offline capability
 if ('serviceWorker' in navigator) {
