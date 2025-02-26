@@ -3,3 +3,5 @@
   image: /images/tesco.png
 - name: Nectar Card
   image: /images/nectar.png
+- name: Lidl Plus
+  image: /images/lidl.png
