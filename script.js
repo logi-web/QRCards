@@ -9,17 +9,28 @@ function closeModal(qrId) {
     document.body.style.overflow = 'auto';
 }
 
-// Simple PWA splash screen handler
+// Splash screen handling
 document.addEventListener('DOMContentLoaded', () => {
-    const splash = document.getElementById('pwa-splash');
+    const splashScreen = document.getElementById('splash-screen');
+    const mainContent = document.querySelector('main'); // Adjust selector as needed
     
-    // Wait a short moment then fade out
+    // Hide main content initially
+    if (mainContent) {
+        mainContent.style.opacity = '0';
+    }
+    
+    // App initialization tasks can go here
+    // For example, loading data, checking authentication, etc.
+    
+    // Simulate loading time (remove in production and rely on actual loading)
     setTimeout(() => {
-        splash.classList.add('fade-out');
+        // Hide splash screen
+        splashScreen.classList.add('hidden');
         
-        // Remove from DOM after animation completes
-        setTimeout(() => {
-            splash.style.display = 'none';
-        }, 800); // Match this to your transition time
-    }, 300); // Adjust delay as needed
+        // Show main content
+        if (mainContent) {
+            mainContent.style.opacity = '1';
+            mainContent.style.transition = 'opacity 0.5s ease-in';
+        }
+    }, 2000); // Adjust timing as needed (2 seconds in this example)
 });
