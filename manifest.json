@@ -7,8 +7,10 @@ layout: null
   "description": "{{ site.description }}",
   "start_url": "{{ site.baseurl }}/?source=pwa",
   "display": "standalone",
-  "background_color": "#2a3042",
-  "theme_color": "#2a3042",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "theme_color_dark": "#121212",
+  "theme_color_light": "#f9f9f9",
   "icons": [
     {
       "src": "{{ site.baseurl }}/icons/favicon-96x96.png",
