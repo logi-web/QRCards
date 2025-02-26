@@ -32,25 +32,6 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Check if app was launched from homescreen
-function isPWA() {
-    return window.matchMedia('(display-mode: standalone)').matches || 
-           window.navigator.standalone || 
-           document.referrer.includes('android-app://');
-}
-
-// Function to show splash screen
-function showSplashScreen() {
-    // Check if the app was launched as PWA and is not navigating from splash screen
-    if (isPWA() && !sessionStorage.getItem('splashShown') && !window.location.href.includes('splash-screen.html')) {
-        sessionStorage.setItem('splashShown', 'true');
-        window.location.href = '{{ site.baseurl }}/splash-screen.html';
-    }
-}
-
-// Check for PWA launch on page load
-window.addEventListener('DOMContentLoaded', showSplashScreen);
-
 // Register Service Worker for offline capability
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
