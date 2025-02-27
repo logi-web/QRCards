@@ -1,2 +1,2 @@
 # QR Codes (qrcodes)
-A quick page for my loyalty card QR codes
+ A Progressive Web App with offline cashing for quick access to my loyalty card QR codes. 
